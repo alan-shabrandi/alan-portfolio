@@ -32,10 +32,23 @@ function DownloadCvButton({
       target="_blank"
       onClick={onClick}
       className={cn(
-        buttonVariants({ variant: "outline", size: "sm" }),
-        "border-white/15 bg-white/5 text-neutral-300 transition-all",
-        "hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:text-white",
-        "rounded-[7px] py-4!",
+        buttonVariants({
+          variant: "outline",
+          size: "sm",
+        }),
+
+        "border-border",
+        "bg-white/5",
+        "text-foreground/70",
+        "transition-all",
+
+        "hover:border-cyan/50",
+        "hover:bg-cyan/10",
+        "hover:text-foreground",
+
+        "rounded-[7px]",
+        "py-4!",
+
         className,
       )}
     >
@@ -47,16 +60,44 @@ function DownloadCvButton({
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+
   const activeSection = useActiveSection(navItems.map((item) => item.id));
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05070a]/60 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+    <header
+      className="
+        sticky
+        top-0
+        z-50
+        border-b
+        border-border
+        bg-background/60
+        backdrop-blur-xl
+      "
+    >
+      <div
+        className="
+          mx-auto
+          flex
+          h-16
+          max-w-7xl
+          items-center
+          justify-between
+          px-6
+        "
+      >
         {/* Logo */}
         <Logo />
 
         {/* Desktop Navigation */}
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav
+          className="
+            hidden
+            items-center
+            gap-10
+            md:flex
+          "
+        >
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
 
@@ -65,11 +106,32 @@ export function Navbar() {
                 key={item.id}
                 href={item.href}
                 className={cn(
-                  "relative text-sm transition-all duration-300",
-                  "after:absolute after:-bottom-2 after:left-0 after:h-px after:bg-cyan-400 after:transition-all after:duration-300",
+                  `
+                  relative
+                  text-sm
+                  transition-all
+                  duration-300
+
+                  after:absolute
+                  after:-bottom-2
+                  after:left-0
+                  after:h-px
+                  after:bg-cyan
+                  after:transition-all
+                  after:duration-300
+                  `,
+
                   isActive
-                    ? "text-white after:w-full"
-                    : "text-neutral-400 hover:text-white after:w-0 hover:after:w-full",
+                    ? `
+                      text-foreground
+                      after:w-full
+                    `
+                    : `
+                      text-foreground/60
+                      hover:text-foreground
+                      after:w-0
+                      hover:after:w-full
+                    `,
                 )}
               >
                 {item.label}
@@ -79,7 +141,13 @@ export function Navbar() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div
+          className="
+            flex
+            items-center
+            gap-3
+          "
+        >
           {/* Desktop CV Button */}
           <DownloadCvButton className="hidden md:flex" />
 
@@ -90,7 +158,12 @@ export function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-neutral-400 hover:bg-white/5 hover:text-white md:hidden"
+                  className="
+                    text-foreground/60
+                    hover:bg-white/5
+                    hover:text-foreground
+                    md:hidden
+                  "
                 />
               }
             >
@@ -99,9 +172,21 @@ export function Navbar() {
 
             <SheetContent
               side="right"
-              className="border-white/10 bg-[#05070a] text-white"
+              className="
+                border-border
+                bg-background
+                text-foreground
+                px-5
+              "
             >
-              <nav className="mt-10 flex flex-col gap-7">
+              <nav
+                className="
+                  mt-10
+                  flex
+                  flex-col
+                  gap-7
+                "
+              >
                 {navItems.map((item) => {
                   const isActive = activeSection === item.id;
 
@@ -111,10 +196,17 @@ export function Navbar() {
                       href={item.href}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "text-lg transition-colors",
+                        `
+                        text-lg
+                        transition-colors
+                        `,
+
                         isActive
-                          ? "text-white"
-                          : "text-neutral-400 hover:text-white",
+                          ? "text-foreground"
+                          : `
+                            text-foreground/60
+                            hover:text-foreground
+                          `,
                       )}
                     >
                       {item.label}

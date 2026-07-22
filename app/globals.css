@@ -9,15 +9,11 @@
 ================================ */
 
 @theme inline {
+  /* Colors */
+
   --color-background: var(--background);
 
   --color-foreground: var(--foreground);
-
-  --font-sans: var(--font-geist-sans);
-
-  --font-mono: var(--font-geist-mono);
-
-  --font-heading: var(--font-geist-sans);
 
   --color-card: var(--card);
 
@@ -28,6 +24,32 @@
   --color-input: var(--input);
 
   --color-ring: var(--ring);
+
+  /* Brand */
+
+  --color-cyan: var(--cyan);
+
+  --color-blue: var(--blue);
+
+  --color-purple: var(--purple);
+
+  /* Semantic */
+
+  --color-success: var(--success);
+
+  --color-warning: var(--warning);
+
+  --color-muted: var(--muted);
+
+  /* Typography */
+
+  --font-sans: var(--font-geist-sans);
+
+  --font-mono: var(--font-geist-mono);
+
+  --font-heading: var(--font-geist-sans);
+
+  /* Radius */
 
   --radius-sm: calc(var(--radius) * 0.6);
 
@@ -59,6 +81,10 @@
 
   --card-foreground: #f8fafc;
 
+  /* Text */
+
+  --muted: #94a3b8;
+
   /* Borders */
 
   --border: rgba(255, 255, 255, 0.1);
@@ -73,7 +99,9 @@
 
   --radius: 0.75rem;
 
-  /* Portfolio Colors */
+  /* ================================
+     Brand Colors
+  ================================= */
 
   --cyan: #22d3ee;
 
@@ -81,11 +109,17 @@
 
   --purple: #8b5cf6;
 
-  --green: #10b981;
+  /* ================================
+     Semantic Colors
+  ================================= */
 
-  --orange: #fb923c;
+  --success: #34d399;
 
-  /* Glass */
+  --warning: #fbbf24;
+
+  /* ================================
+     Glass
+  ================================= */
 
   --glass: rgba(255, 255, 255, 0.04);
 
@@ -102,8 +136,7 @@
   }
 
   html {
-    @apply scroll-smooth
-      font-sans;
+    @apply scroll-smooth font-sans;
   }
 
   body {
@@ -114,9 +147,9 @@
   }
 
   ::selection {
-    background: rgba(34, 211, 238, 0.25);
+    background: color-mix(in srgb, var(--cyan) 25%, transparent);
 
-    color: white;
+    color: var(--foreground);
   }
 }
 
@@ -134,15 +167,15 @@
   }
 
   .glow-cyan {
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.25);
+    box-shadow: 0 0 30px color-mix(in srgb, var(--cyan) 25%, transparent);
   }
 
   .glow-blue {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.25);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--blue) 25%, transparent);
   }
 
   .gradient-text {
-    background: linear-gradient(90deg, #22d3ee, #3b82f6, #8b5cf6);
+    background: linear-gradient(90deg, var(--cyan), var(--blue), var(--purple));
 
     -webkit-background-clip: text;
 
@@ -153,8 +186,15 @@
 
   .grid-background {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      linear-gradient(
+        color-mix(in srgb, white 4%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, white 4%, transparent) 1px,
+        transparent 1px
+      );
 
     background-size: 40px 40px;
   }
