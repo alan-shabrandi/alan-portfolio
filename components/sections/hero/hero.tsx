@@ -19,7 +19,7 @@ export function Hero() {
           <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
             Building scalable software
             <br />
-            <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
               systems with modern engineering
             </span>
           </h1>
