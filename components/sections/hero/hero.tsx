@@ -1,63 +1,73 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Or SiGithub, SiLinkedin from "react-icons/si"
+import { ArrowRight, Mail, Award, Layers, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
-import { HeroBackground } from "./hero-background";
-
-export function Hero() {
+export default function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-64px)] items-center overflow-hidden">
-      <HeroBackground />
-
-      <div className="mx-auto max-w-7xl px-6 py-24">
-        <div className="max-w-4xl">
-          <p className="mb-6 text-sm font-medium text-blue-400">
-            FullStack + AI Engineer
-          </p>
-
-          <h1 className="text-5xl font-bold tracking-tight text-white md:text-7xl">
-            Building scalable software
-            <br />
-            <span className="bg-linear-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-              systems with modern engineering
-            </span>
-          </h1>
-
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-neutral-400">
-            Senior FullStack Engineer specialized in JavaScript, Go and
-            Artificial Intelligence. I design and build reliable systems that
-            scale.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button size="lg">
-              View Projects
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <Button variant="outline" size="lg">
-              <Link href="/contact">Contact Me</Link>
-            </Button>
+    <section className="relative bg-hero-bg text-foreground overflow-hidden flex items-center px-4 sm:px-6 lg:px-8 py-12 lg:py-5">
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="space-y-3">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+              Alan Shabrandi
+            </h1>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold gradient-hero-title">
+              FullStack + AI Engineer
+            </h2>
           </div>
 
-          <div className="mt-10 flex gap-5 text-neutral-400">
+          <p className="text-muted text-base sm:text-lg lg:text-xl max-w-xl leading-relaxed">
+            Building scalable software systems with{" "}
+            <span className="text-gray-200 font-medium">JavaScript</span>,{" "}
+            <span className="text-gray-200 font-medium">Go</span> and{" "}
+            <span className="text-gray-200 font-medium">
+              Artificial Intelligence
+            </span>
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
             <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2.5 gradient-btn-primary hover:opacity-90 text-white font-semibold px-6 py-3.5 rounded-custom shadow-lg glow-blue transition-all duration-300"
             >
-              <FaGithub className="h-5 w-5 transition-colors hover:text-white" />
+              View Projects
+              <ArrowRight className="w-5 h-5" />
             </a>
+
             <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 bg-surface-dark hover:bg-surface-hover border border-border text-gray-200 font-medium px-6 py-3.5 rounded-custom transition-all"
             >
-              <FaLinkedin className="h-5 w-5 transition-colors hover:text-white" />
+              Contact Me
+              <Mail className="w-4 h-4 text-muted" />
             </a>
+          </div>
+
+          <div className="pt-8 flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-muted border-t border-border">
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 text-blue shrink-0" />
+              <span>8+ Years Experience</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Layers className="w-4 h-4 text-blue shrink-0" />
+              <span>Clean Architecture</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-blue shrink-0" />
+              <span>Reliable Delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="relative w-full max-w-112-5 lg:max-w-none">
+            <Image
+              src="/hero.png"
+              alt="Alan Shabrandi - Hero Image"
+              width={650}
+              height={650}
+              priority
+              className="w-full h-auto object-contain drop-shadow-2xl"
+            />
           </div>
         </div>
       </div>
